@@ -1,7 +1,12 @@
-# Reset Masculino — Páginas de Vendas (7 Verdades)
+# Reset Masculino — Diagnóstico + Páginas de Vendas (7 Verdades)
 
-Funil de diagnóstico do e-book **7 Verdades Que Todo Homem Precisa Ouvir**.
-São 4 páginas de resultado, uma para cada perfil do quiz.
+Funil completo do e-book **7 Verdades Que Todo Homem Precisa Ouvir**:
+um diagnóstico (quiz) que classifica o homem em 1 de 4 perfis e o leva à
+página de vendas correspondente.
+
+- `diagnostico.html` — o quiz (12 perguntas), calcula o perfil e redireciona.
+- `reset-1..4` — as 4 páginas de resultado/venda, uma por perfil.
+- **`FUNIL.md`** — explicação do funil inteiro + guia de migração do Tally (Make/Airtable/ManyChat).
 
 ## As 4 páginas
 
