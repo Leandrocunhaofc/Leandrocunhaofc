@@ -13,7 +13,12 @@ for f in files:
 
     def repl(m):
         tag, attrs, body = m.group(1), m.group(2), m.group(3)
-        body = cssmin(body) if tag.lower() == "style" else jsmin(body)
+        if tag.lower() == "style":
+            body = cssmin(body)
+        else:
+            # linha unica absoluta: todo statement termina em ; ou }, entao
+            # trocar \n por espaco e seguro e impede o wpautop de inserir <br>
+            body = jsmin(body).replace("\n", " ")
         blocks.append("<%s%s>%s</%s>" % (tag, attrs, body, tag))
         return SENT + str(len(blocks) - 1) + SENT
 
