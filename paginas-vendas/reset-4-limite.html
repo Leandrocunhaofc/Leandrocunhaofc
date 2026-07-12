@@ -121,11 +121,12 @@ src="https://www.facebook.com/tr?id=1307273057695610&ev=PageView&noscript=1"/></
   .rm .center{text-align:center}
   .rm .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
 
-  /* reveal */
-  .rm .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-  .rm .rv.is-in{opacity:1;transform:none}
+  /* reveal — conteúdo VISÍVEL por padrão; animação só entra se o JS ativar (.js-reveal) */
+  .rm .rv{opacity:1;transform:none}
+  .rm.js-reveal .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .rm.js-reveal .rv.is-in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){
-    .rm .rv{opacity:1;transform:none;transition:none}
+    .rm.js-reveal .rv{opacity:1;transform:none;transition:none}
   }
 
   /* ---------- STICKY EYEBROW BAR ---------- */
@@ -732,7 +733,7 @@ src="https://www.facebook.com/tr?id=1307273057695610&ev=PageView&noscript=1"/></
         <a href="#">Termos de Uso</a>
         <a href="mailto:contato@leandrocunhaofc.com.br">Suporte</a>
       </nav>
-      <p class="copy">© 2026 Reset Masculino — Leandro Cunha. Todos os direitos reservados.<br>Este produto não garante resultados. CNPJ 00.000.000/0001-00.</p>
+      <p class="copy">© 2026 Reset Masculino — Leandro Cunha. Todos os direitos reservados.<br>Este produto é educacional e não garante resultados individuais.</p>
     </div>
   </footer>
 
@@ -747,25 +748,29 @@ src="https://www.facebook.com/tr?id=1307273057695610&ev=PageView&noscript=1"/></
 (function(){
   /* ====== 1) LINK DO CHECKOUT — TROQUE AQUI ====== */
   var CHECKOUT_URL = "https://pay.hotmart.com/C106036012S?checkoutMode=10&sck=limite";
+  // encaminha as UTMs do anúncio para a Hotmart (o link já funciona sem isto, pois está fixo no href)
+  var _utm = (function(){ try{ var p=new URLSearchParams(location.search), o=[];
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){ if(p.get(k)) o.push(k+'='+encodeURIComponent(p.get(k))); });
+    return o.join('&'); }catch(e){ return ''; } })();
+  var _checkout = CHECKOUT_URL + (_utm ? (CHECKOUT_URL.indexOf('?')>=0?'&':'?')+_utm : '');
   document.querySelectorAll('.rm [data-cta]').forEach(function(a){
-    a.setAttribute('href', CHECKOUT_URL);
+    a.setAttribute('href', _checkout);
     a.addEventListener('click', function(){
       if(window.fbq){ fbq('track', 'InitiateCheckout', {content_name: 'Homem no Limite do Automático', value: 37, currency: 'BRL'}); }
     });
   });
 
-  /* ====== 2) Revelação no scroll ====== */
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var items = document.querySelectorAll('.rm .rv');
-  if(reduce || !('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('is-in'); });
-  } else {
+  /* ====== 2) Revelação no scroll (opcional; conteúdo já é visível sem isto) ====== */
+  var root = document.querySelector('.rm');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(root && !reduce && 'IntersectionObserver' in window){
+    root.classList.add('js-reveal'); // só agora os .rv começam escondidos p/ animar
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
     }, {rootMargin:'0px 0px -8% 0px', threshold:0.12});
-    items.forEach(function(el){ io.observe(el); });
+    document.querySelectorAll('.rm .rv').forEach(function(el){ io.observe(el); });
   }
 
   /* ====== 3) Barra fixa de compra (mobile) ====== */
