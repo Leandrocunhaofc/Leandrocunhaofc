@@ -61,3 +61,30 @@ ManyChat RM06 → Pós-compra e Onboarding
 - [ ] 1 compra real de teste → RM05 para recuperação → RM06 onboarding dispara
 - [ ] Pixel disparando (Gerenciador de Eventos: PageView, Lead, InitiateCheckout)
 - [ ] Apontar anúncio/bio para /diagnostico.html e desligar o Tally
+
+---
+
+# Projeto: Pós-compra e Retenção (14/07/2026)
+
+## Status validado nesta data
+- Quiz /diagnostico.html → 4 páginas → checkout Hotmart (com order bump): ✅ funcionando ponta a ponta.
+- Causa raiz dos últimos erros: slugs errados em 2 páginas de resultado (corrigidos).
+
+## A construir: RM06B — Roteador Pós-compra (ManyChat)
+Gatilho: tag "comprou_ebook" → Delay 1h → Condições:
+1. tem "comprou_curso" → Msg 3: parabéns completo + LINK GRUPO RESET ON FIRE
+2. senão, tem "comprou_audio" → Msg 2: parabéns + oferta Curso Reset Online
+3. senão → Msg 1: parabéns + oferta Áudio + Curso
+
+As 3 mensagens (rascunho aprovável) estão no histórico do chat.
+
+## Atenção — janela de 24h do WhatsApp
+Mensagens após 24h da última interação exigem TEMPLATE aprovado (Meta).
+- Roteador (delay 1h): dentro da janela, ok.
+- Retenção RM02/07/08/09 (dias): PRECISAM usar templates aprovados, senão não entregam.
+
+## Testes pendentes
+- [ ] Compra só eBook → Msg 1 + recuperação para (RM05)
+- [ ] Compra eBook+Áudio → Msg 2
+- [ ] Compra tudo → Msg 3 + grupo
+- [ ] Retenção: msgs programadas chegando após os testes do quiz
