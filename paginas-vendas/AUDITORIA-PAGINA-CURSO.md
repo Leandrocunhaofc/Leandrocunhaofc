@@ -147,3 +147,28 @@ ticket maior (curso exige mais prova e mais concretude):
 - [ ] A "comunidade masculina" prometida é o grupo **Reset on Fire**? Entra
       como bônus?
 - [ ] URLs reais de Política de Privacidade e Termos de Uso.
+
+
+---
+
+## ✅ RESOLVIDO (17/07/2026)
+
+Auditoria concluída e página reconstruída em `curso-reset-masculino.html`
+(mesmo design system do ebook, blindada contra o wpautop). Publicada em
+`/curso-reset-masculino/` e validada pelo Leandro no ar.
+
+- Oferta: de R$297 por R$97 (preço atualizado na Hotmart pelo Leandro).
+- Pixel: PageView + InitiateCheckout (R$97) no clique dos CTAs.
+- Checkout: `V105952284O?checkoutMode=10&sck=pagina-curso`.
+- Acesso informado: 1 ano na área de membros da Hotmart (FAQ).
+- Comunidade: Reset on Fire (grupo exclusivo de alunos).
+- Páginas legais criadas e publicadas: `/politica-de-privacidade/` e
+  `/termos-de-uso/` (arquivos `politica-de-privacidade.html` e
+  `termos-de-uso.html`, com estilo próprio independente do tema).
+- Lição operacional: TODA página colada no WordPress precisa passar pela
+  blindagem (CSS/JS em linha única, zero quebras de linha — ver
+  `build/blindar.py`), senão o editor injeta parágrafos e quebra o layout.
+
+### Pendência de acompanhamento
+- [ ] Conferir no Gerenciador de Eventos da Meta se `InitiateCheckout`
+      dispara na página do curso (clicar num CTA e observar o evento).
