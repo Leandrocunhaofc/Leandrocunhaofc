@@ -34,6 +34,8 @@ com lead e aluno) é 100% automático.
 | RM13 Check-in Dia 7 | 7 dias após `comprou_curso` | 10h | M6 | TEMPLATE |
 | RM14 Pede depoimento Dia 14 | 14 dias após `comprou_curso` | 10h | M7 | TEMPLATE |
 | RM02/07/08/09 Recuperação lead | quiz sem compra | dia seguinte+ | M8 | TEMPLATE |
+| RM15 Missão de segunda | toda segunda, 8h | tag `comprou_curso` | M9 | TEMPLATE |
+| RM16 Fechamento de sexta | toda sexta, 18h | tag `comprou_curso` | M10 | TEMPLATE |
 
 \* LIVRE se o cliente interagiu nas últimas 24h (acabou de comprar vindo do
 fluxo, normalmente sim). Para garantir entrega sempre, cadastre M1 também
@@ -156,6 +158,59 @@ página do perfil. Um template só serve os 4 fluxos.
 
 ---
 
+## FLUXOS RM15 e RM16 — Ritual semanal AUTOMÁTICO no privado
+
+O robô abre e fecha a semana com cada aluno individualmente; o grupo é onde
+a conversa acontece. A missão do privado e o post do grupo são o MESMO tema
+da semana — um reforça o outro.
+
+**Como montar (só 2 templates para aprovar):** o texto fixo é o template;
+a missão da semana entra como variável. Toda semana você só troca o valor
+da variável no fluxo (30 segundos) — ou deixa as 4 semanas agendadas.
+
+### RM15 — Missão de segunda (toda segunda, 8h, tag `comprou_curso`)
+
+**M9 — template `missao_semanal`** `[TEMPLATE]`
+
+> Bom dia, {{1}}. Semana nova, missão nova no Reset Masculino:
+>
+> 🎯 {{2}}
+>
+> Missão dada é missão cumprida. Quando fizer, conta lá no grupo Reset on
+> Fire — tem irmão esperando seu exemplo. Boa semana. 👊
+
+Variáveis: {{1}} nome · {{2}} missão da semana (banco abaixo).
+
+### RM16 — Fechamento de sexta (toda sexta, 18h, tag `comprou_curso`)
+
+**M10 — template `fechamento_sexta`** `[TEMPLATE]`
+
+> {{1}}, sexta-feira. Hora de fechar a semana como homem que presta conta:
+> a missão ({{2}}) saiu do papel?
+>
+> Me responde com uma palavra: FEITO, PELA METADE ou TRAVEI.
+>
+> Seja qual for a resposta, ela vale mais que o silêncio. Bom fim de
+> semana — segunda tem mais. 👊
+
+*(Resposta abre a janela de 24h — dá para automatizar a réplica: FEITO →
+parabéns + manda contar no grupo; PELA METADE → incentivo; TRAVEI →
+pergunta onde travou.)*
+
+### Banco de missões (valor da variável {{2}}, sem quebra de linha)
+
+| Semana | Missão |
+|---|---|
+| 1 | Escolha UMA coisa que você adia há mais de 30 dias e resolva até sexta |
+| 2 | Todo dia, 5 minutos de silêncio antes de pegar o celular de manhã |
+| 3 | Marque e faça a conversa que você vem evitando (esposa, filho, pai, sócio) |
+| 4 | Termine a missão que você deixou pela metade neste mês |
+
+*(As mesmas 4 missões dos posts do grupo — de propósito: privado empurra,
+grupo cobra. Após a semana 4, recomeça ou peça novo banco.)*
+
+---
+
 ## BANCO DE POSTS DO GRUPO (4 semanas — copiar e colar)
 
 ### Semana 1
@@ -207,8 +262,11 @@ página do perfil. Um template só serve os 4 fluxos.
 - [ ] Make: confirmar que RM05C aplica `comprou_curso` na compra direta.
 - [ ] ManyChat: criar RM11 (M1), RM06B (M2/M3/M4), RM12 (M5), RM13 (M6),
       RM14 (M7).
-- [ ] Meta/ManyChat: submeter templates M1, M5, M6, M7, M8 para aprovação
-      (leva de minutos a ~1 dia; fazer primeiro, é o gargalo).
+- [ ] Meta/ManyChat: submeter templates M1, M5, M6, M7, M8, M9, M10 para
+      aprovação (leva de minutos a ~1 dia; fazer primeiro, é o gargalo).
+- [ ] ManyChat: criar RM15 (segunda 8h) e RM16 (sexta 18h) como broadcast
+      recorrente para a tag `comprou_curso`, trocando a variável {{2}}
+      conforme o banco de missões.
 - [ ] Refazer RM02/07/08/09 usando o template M8 aprovado.
 - [ ] Compra de teste R$97: valida RM11 → grupo → (aguardar) RM12/13/14.
 - [ ] Agendar lembrete fixo (seg/qua/sex, 2 min) para colar o post do banco.
