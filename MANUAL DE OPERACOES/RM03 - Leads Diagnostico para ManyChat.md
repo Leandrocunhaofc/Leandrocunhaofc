@@ -1,8 +1,8 @@
 # RM03 — Leads Diagnóstico para ManyChat
 
 **Projeto:** RESET MASCULINO_2  
-**Atualização:** 18/07/2026  
-**Status:** teste de contato existente aprovado; teste de contato novo ainda pendente; cenário desligado
+**Atualização:** 20/07/2026  
+**Status:** operacional; rota de contato existente aprovada; criação de contato novo comprovada; recomenda-se apenas uma validação futura em execução única, sem bloquear o avanço da auditoria
 
 ## Problema identificado
 
@@ -10,19 +10,17 @@ O módulo `ManyChat — Create Subscriber` falhava quando o WhatsApp já existia
 
 > This WhatsApp ID already exists
 
-O Make repetiu o mesmo registro e desativou automaticamente o cenário. O contato existente foi localizado no ManyChat e o Subscriber ID confirmado foi `1122441770`, associado ao WhatsApp normalizado `5521976372196`.
-
-Também foi identificado que o diagnóstico próprio envia o telefone como DDD + número, por exemplo `21976372196`, enquanto o ManyChat armazena o telefone com DDI, por exemplo `5521976372196`.
+O Make repetiu o mesmo registro e desativou automaticamente o cenário. Também foi identificado que o diagnóstico próprio envia o telefone como DDD + número, enquanto o ManyChat armazena o telefone com DDI `55`.
 
 ## Campo personalizado criado no ManyChat
 
 - Nome: `RM - WA ID Lookup`
 - Tipo: Texto
-- Finalidade: localizar contatos já existentes pelo telefone normalizado.
+- Finalidade: localizar contatos existentes pelo telefone normalizado.
 
 ## Normalização definitiva do telefone
 
-Nos módulos abaixo, o valor passou a ser montado visualmente no Make como:
+Nos módulos abaixo, o valor é montado visualmente no Make como:
 
 ```text
 55 + token Airtable 2 → WA ID
@@ -33,8 +31,6 @@ Exemplo:
 ```text
 21976372196 → 5521976372196
 ```
-
-A fórmula textual digitada anteriormente não foi interpretada pelo Make e foi removida.
 
 A normalização foi aplicada em:
 
@@ -56,21 +52,22 @@ Airtable 2 — Watch Records
 → Airtable 12 — Update a Record
 ```
 
-Configurações principais:
+Configurações:
 
-- `Create Subscriber`:
+- `ManyChat 10 — Create Subscriber`:
   - First name: `Airtable 2 → Nome`;
   - Phone number: vazio;
   - WhatsApp phone number: `55` + `Airtable 2 → WA ID`.
 
-- `Set a Custom Field`:
-  - Subscriber ID: `ManyChat 10 → ID`;
+- `ManyChat 22 — Set a Custom Field`:
+  - Subscriber ID: primeiro `ID` retornado pelo `ManyChat 10`;
+  - não usar `User ID`;
   - Field ID: `RM - WA ID Lookup`;
   - Field value: `55` + `Airtable 2 → WA ID`.
 
 - `Airtable 12 — Update a Record`:
   - Record ID: `Airtable 2 → ID`;
-  - Manychat Subscriber ID: `ManyChat 10 → ID`;
+  - Manychat Subscriber ID: primeiro `ID` retornado pelo `ManyChat 10`;
   - Enviado Manychat?: `Yes`.
 
 ### Rota de erro — contato já existente
@@ -82,7 +79,7 @@ ManyChat 10 — Create Subscriber gera duplicidade
 → Skip 26
 ```
 
-Configurações principais:
+Configurações:
 
 - `ManyChat 24 — Find Subscribers by a Custom Field`:
   - Field ID: `RM - WA ID Lookup`;
@@ -103,66 +100,85 @@ ManyChat 20 — Find Subscribers by a Custom Field
 → Airtable 21 — Update a Record
 ```
 
-Essa rota foi preservada e permanece bloqueada temporariamente. Não apagar antes da validação completa do RM03.
-
-## Limpeza da fila antiga
-
-Os registros claramente fictícios foram removidos do Airtable. Os registros reais pendentes foram processados individualmente.
-
-Para o contato de teste principal:
-
-```text
-WhatsApp normalizado = 5521976372196
-Manychat Subscriber ID = 1122441770
-Enviado Manychat? = true
-```
+Permanece preservada e bloqueada temporariamente. Não apagar antes da conclusão de toda a auditoria de recuperação.
 
 ## Teste A — contato já existente
 
-**Status: APROVADO em 18/07/2026.**
+**Status: APROVADO.**
 
-Procedimento executado:
+Validações realizadas com mais de um número:
 
-1. novo diagnóstico usando o telefone já existente;
-2. Airtable recebeu o WA ID sem DDI;
-3. `Create Subscriber` identificou duplicidade;
-4. `ManyChat 24` pesquisou o valor normalizado `5521976372196`;
-5. `ManyChat 24` retornou:
+- `Create Subscriber` reconheceu duplicidade;
+- `ManyChat 24` encontrou o contato pelo campo `RM - WA ID Lookup`;
+- retornou o Subscriber ID correto;
+- `Airtable 25` gravou o ID;
+- `Enviado Manychat? = true`;
+- execução terminou corretamente via `Skip 26`.
+
+Exemplos confirmados:
 
 ```text
-ID = 1122441770
-whatsapp_phone = +5521976372196
-Total number of bundles = 1
+WhatsApp = 5521976372196
+Subscriber ID = 1122441770
 ```
 
-6. `Airtable 25` gravou:
+```text
+WhatsApp = 5521974512090
+Subscriber ID = 1057713106
+```
+
+## Teste B — contato novo
+
+**Status: CRIAÇÃO COMPROVADA E REGISTRO RECUPERADO.**
+
+No teste com Mayara:
+
+1. o número não havia passado pelo funil;
+2. `ManyChat 10 — Create Subscriber` criou o contato;
+3. foi retornado:
 
 ```text
-Manychat Subscriber ID = 1122441770
+Subscriber ID = 1697791282
+```
+
+4. o módulo `ManyChat 22` falhou inicialmente porque estava mapeado para `10. User ID`, que veio vazio;
+5. o campo foi corrigido para o primeiro `ID` retornado pelo `ManyChat 10`;
+6. o mesmo ajuste foi confirmado no `Airtable 12`;
+7. o campo `RM - WA ID Lookup` foi preenchido;
+8. a linha foi reprocessada e passou a apresentar:
+
+```text
+Manychat Subscriber ID = 1697791282
 Enviado Manychat? = true
 ```
 
-7. execução encerrada com sucesso pela rota de erro e `Skip 26`.
+### Observação técnica honesta
 
-## Teste B — contato realmente novo
+A criação do contato novo foi comprovada e o erro de mapeamento foi corrigido. A linha foi recuperada com sucesso. Ainda é recomendável, quando surgir outro telefone totalmente novo, confirmar o percurso completo em uma única execução:
 
-**Status: PENDENTE.**
+```text
+Airtable 2 → ManyChat 10 → ManyChat 22 → Airtable 12
+```
 
-Objetivo:
+Essa confirmação adicional não impede o avanço para a recuperação dos leads e compradores históricos.
 
-- usar um número real que ainda não exista no ManyChat;
-- confirmar criação automática do contato;
-- confirmar preenchimento de `RM - WA ID Lookup`;
-- confirmar gravação do novo Subscriber ID no Airtable;
-- confirmar `Enviado Manychat? = true`;
-- confirmar que a rota de erro não é acionada.
+## Estado operacional atual
 
-## Critério para ativação
+- normalização com DDI `55`: corrigida;
+- contato existente: validado;
+- contato novo: criação comprovada;
+- Subscriber ID da rota nova: mapeado para `ID`, não `User ID`;
+- gravação no Airtable: confirmada após reprocessamento;
+- rota antiga: bloqueada e preservada;
+- próximo bloco: recuperar leads sem compra e auditar compradores por combinação de produtos.
 
-O RM03 só poderá ser ativado após o Teste B concluir sem erro. Depois da aprovação:
+## Próxima etapa da auditoria
 
-1. manter a rota principal liberada;
-2. manter a rota de erro ativa;
-3. manter a rota antiga bloqueada até decisão de arquivamento;
-4. ativar o agendamento `Every 15 minutes`;
-5. executar o teste completo do diagnóstico até a recuperação correta conforme o perfil.
+1. localizar os quatro leads reais que fizeram diagnóstico e não compraram;
+2. confirmar Subscriber ID, perfil e estado das flags;
+3. reenfileirar cada um no RM04 correspondente;
+4. validar entrada nas automações RM02, RM07, RM08 ou RM09;
+5. depois auditar os grupos de compra:
+   - somente eBook;
+   - eBook + áudio;
+   - eBook + áudio + Reset Online.
