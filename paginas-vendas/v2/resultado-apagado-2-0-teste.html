@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Homem Apagado — Seu Resultado | Reset Masculino</title>
+</head>
+<body style="margin:0;background:#070707">
+
+<section id="rm-resultado-v2" class="rmr" aria-label="Homem Apagado">
+<style>
+#rm-resultado-v2{
+  --bg:#070707;--panel:#12110f;--gold:#d5a33f;--gold-light:#f1cd78;--gold-dark:#8f651e;
+  --text:#f2eee5;--muted:#aaa295;--line:rgba(213,163,63,.24);--line-soft:rgba(255,255,255,.09);
+  width:100%;color:var(--text);
+  background:radial-gradient(90% 55% at 50% -10%,rgba(213,163,63,.15),transparent 62%),
+    linear-gradient(180deg,#0b0a08 0%,var(--bg) 52%,#030303 100%);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:84px;
+}
+#rm-resultado-v2 *,#rm-resultado-v2 *::before,#rm-resultado-v2 *::after{box-sizing:border-box}
+#rm-resultado-v2 img{max-width:100%;display:block}
+#rm-resultado-v2 a{text-decoration:none}
+#rm-resultado-v2 .rmr-shell{width:min(100%,680px);margin:0 auto;padding:26px 18px 40px}
+#rm-resultado-v2 h1,#rm-resultado-v2 h2,#rm-resultado-v2 h3{
+  margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:700;
+  letter-spacing:-.025em;text-wrap:balance;color:var(--text)}
+#rm-resultado-v2 h1{font-size:clamp(2.1rem,8vw,3.3rem);line-height:1}
+#rm-resultado-v2 h2{font-size:clamp(1.5rem,5.4vw,2.15rem);line-height:1.12}
+#rm-resultado-v2 h3{font-size:1.06rem;line-height:1.25}
+#rm-resultado-v2 p{margin:0}
+#rm-resultado-v2 .gold{color:var(--gold-light)}
+#rm-resultado-v2 .kicker{color:var(--gold);font-size:.72rem;font-weight:800;
+  letter-spacing:.17em;text-transform:uppercase;margin:0 0 10px}
+#rm-resultado-v2 .lead{color:var(--muted);font-size:clamp(1rem,3vw,1.09rem);margin-top:16px}
+#rm-resultado-v2 .card{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;
+  padding:clamp(24px,6vw,40px);margin-bottom:18px;
+  background:radial-gradient(70% 50% at 100% 0%,rgba(213,163,63,.10),transparent 72%),
+    linear-gradient(180deg,rgba(24,21,15,.96),rgba(12,12,12,.98));
+  box-shadow:0 30px 90px rgba(0,0,0,.46)}
+
+/* topo */
+#rm-resultado-v2 .brand{display:flex;flex-direction:column;align-items:center;gap:4px;
+  color:var(--gold-light);margin-bottom:22px;text-align:center}
+#rm-resultado-v2 .brand-mark{width:40px;height:40px;display:grid;place-items:center;
+  border:1px solid rgba(241,205,120,.62);border-radius:50%;font-family:Georgia,serif;
+  font-size:.86rem;font-weight:800;letter-spacing:-.04em;
+  background:radial-gradient(circle at 38% 30%,rgba(241,205,120,.20),rgba(213,163,63,.04) 55%,transparent 70%);
+  box-shadow:0 0 28px rgba(213,163,63,.12)}
+#rm-resultado-v2 .brand-word{font-size:.74rem;font-weight:850;letter-spacing:.21em;text-transform:uppercase;line-height:1}
+
+/* medidor */
+#rm-resultado-v2 .meter{display:flex;gap:7px;justify-content:center;margin:16px 0 4px}
+#rm-resultado-v2 .meter i{width:56px;height:6px;border-radius:4px;background:rgba(255,255,255,.11)}
+#rm-resultado-v2 .meter i.on{background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  box-shadow:0 0 14px rgba(213,163,63,.45)}
+#rm-resultado-v2 .meter-label{text-align:center;color:var(--muted);font-size:.68rem;
+  font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+
+/* chips personalizados */
+#rm-resultado-v2 .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+#rm-resultado-v2 .chip{border:1px solid var(--line-soft);border-radius:13px;padding:13px 14px;
+  background:rgba(0,0,0,.26)}
+#rm-resultado-v2 .chip span{display:block;color:var(--muted);font-size:.66rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+#rm-resultado-v2 .chip b{color:var(--gold-light);font-size:.98rem;font-weight:800}
+@media(max-width:520px){#rm-resultado-v2 .chips{grid-template-columns:1fr}}
+
+/* leitura */
+#rm-resultado-v2 .read p{margin-top:16px;font-size:1.02rem}
+#rm-resultado-v2 .read p:first-child{margin-top:0}
+#rm-resultado-v2 .impact{border-left:3px solid var(--gold);background:rgba(213,163,63,.07);
+  padding:16px 18px;margin-top:22px;border-radius:0 12px 12px 0;
+  font-family:Georgia,serif;font-style:italic;font-size:1.08rem;color:var(--gold-light)}
+
+/* VSL */
+#rm-resultado-v2 .vsl{display:none}
+#rm-resultado-v2 .vsl.on{display:block}
+#rm-resultado-v2 .vsl-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;
+  overflow:hidden;border:1px solid var(--line);background:#000;margin-top:18px}
+#rm-resultado-v2 .vsl-frame iframe,#rm-resultado-v2 .vsl-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* custo */
+#rm-resultado-v2 .cost{display:grid;gap:12px;margin-top:22px}
+#rm-resultado-v2 .cost div{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;
+  color:#ddd6ca;font-size:.98rem}
+#rm-resultado-v2 .cost b{color:var(--gold-light);font-family:Georgia,serif;font-size:1.1rem;line-height:1.2}
+
+/* oferta */
+#rm-resultado-v2 .stack{display:grid;gap:10px;margin-top:22px}
+#rm-resultado-v2 .item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;
+  border:1px solid var(--line-soft);border-radius:13px;padding:14px 16px;background:rgba(0,0,0,.24)}
+#rm-resultado-v2 .item p{font-size:.95rem;font-weight:700}
+#rm-resultado-v2 .item small{display:block;color:var(--muted);font-size:.8rem;font-weight:500;margin-top:2px}
+#rm-resultado-v2 .item em{color:var(--gold-light);font-style:normal;font-size:.82rem;
+  font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+#rm-resultado-v2 .price{text-align:center;margin-top:26px}
+#rm-resultado-v2 .price .old{color:var(--muted);font-size:.9rem}
+#rm-resultado-v2 .price .old s{opacity:.75}
+#rm-resultado-v2 .price .big{font-family:Georgia,serif;font-size:clamp(3rem,14vw,4rem);
+  line-height:1;color:var(--gold-light);margin-top:4px;text-shadow:0 2px 30px rgba(213,163,63,.35)}
+#rm-resultado-v2 .price .big small{font-size:.38em;vertical-align:top;margin-right:3px}
+#rm-resultado-v2 .price .note{color:var(--muted);font-size:.86rem;margin-top:6px}
+
+/* botao */
+#rm-resultado-v2 .btn{width:100%;min-height:60px;display:inline-flex;align-items:center;
+  justify-content:center;gap:9px;border:0;border-radius:13px;padding:17px 20px;color:#171005;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  box-shadow:0 14px 38px rgba(213,163,63,.24),inset 0 1px 0 rgba(255,255,255,.42);
+  font-weight:850;font-size:clamp(1rem,4vw,1.14rem);letter-spacing:.03em;text-transform:uppercase;
+  text-align:center;margin-top:22px;transition:transform .16s ease,filter .16s ease;cursor:pointer}
+#rm-resultado-v2 .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+#rm-resultado-v2 .btn:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}
+#rm-resultado-v2 .trust{display:flex;gap:8px 20px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+#rm-resultado-v2 .trust span{color:var(--muted);font-size:.79rem}
+
+/* garantia */
+#rm-resultado-v2 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+#rm-resultado-v2 .seal{width:78px;height:78px;flex:none;display:grid;place-items:center;border-radius:50%;
+  border:2px solid var(--gold);color:var(--gold-light);font-family:Georgia,serif;text-align:center;
+  line-height:1;box-shadow:0 0 30px rgba(213,163,63,.18)}
+#rm-resultado-v2 .seal b{font-size:1.5rem;display:block}
+#rm-resultado-v2 .seal span{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:520px){#rm-resultado-v2 .guarantee{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* autor */
+#rm-resultado-v2 .author{text-align:center}
+#rm-resultado-v2 .author .photo{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;
+  border:2px solid var(--gold);padding:4px;background:radial-gradient(circle,#211d16,#0a0908);
+  box-shadow:0 0 34px rgba(213,163,63,.18)}
+#rm-resultado-v2 .author .photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top}
+#rm-resultado-v2 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+#rm-resultado-v2 .stats b{display:block;font-family:Georgia,serif;font-size:1.32rem;color:var(--gold-light)}
+#rm-resultado-v2 .stats span{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* faq */
+#rm-resultado-v2 details{border:1px solid var(--line-soft);border-radius:13px;
+  background:rgba(0,0,0,.24);margin-top:10px;overflow:hidden}
+#rm-resultado-v2 details[open]{border-color:var(--line)}
+#rm-resultado-v2 summary{list-style:none;cursor:pointer;padding:15px 17px;color:var(--gold-light);
+  font-weight:800;font-size:.93rem;display:flex;gap:10px;align-items:center}
+#rm-resultado-v2 summary::-webkit-details-marker{display:none}
+#rm-resultado-v2 summary::after{content:"+";margin-left:auto;font-size:1.2rem;color:var(--gold)}
+#rm-resultado-v2 details[open] summary::after{content:"−"}
+#rm-resultado-v2 details p{padding:0 17px 16px;color:var(--muted);font-size:.92rem}
+
+/* rodape */
+#rm-resultado-v2 .foot{text-align:center;color:#817b72;font-size:.74rem;line-height:1.6;margin-top:26px}
+#rm-resultado-v2 .foot a{color:#aaa397}
+
+/* barra fixa */
+#rm-resultado-v2 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(7,7,7,.5),#070707 60%);border-top:1px solid var(--line);
+  backdrop-filter:blur(8px);transform:translateY(120%);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
+#rm-resultado-v2 .sticky.show{transform:none}
+#rm-resultado-v2 .sticky a{display:flex;align-items:center;justify-content:center;width:100%;
+  max-width:680px;margin:0 auto;min-height:52px;border-radius:11px;color:#171005;font-weight:850;
+  text-transform:uppercase;letter-spacing:.03em;font-size:1rem;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  box-shadow:0 -4px 22px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.42)}
+</style>
+
+<div class="rmr-shell">
+
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">RM</span>
+    <span class="brand-word">Reset Masculino</span>
+  </div>
+
+  <!-- 1. REVELACAO -->
+  <div class="card">
+    <p class="kicker" id="rmrKicker">Resultado do seu diagnóstico</p>
+    <p class="meter-label">Intensidade do padrão</p>
+    <div class="meter"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div>
+    <h1><span class="gold">Homem Apagado</span></h1>
+    <p class="lead">Por fora você funciona. Por dentro, faz tempo que você não sente presença no que faz.</p>
+
+    <div class="chips">
+      <div class="chip"><span>Intensidade</span><b id="rmrIntensity">Moderada</b></div>
+      <div class="chip"><span>Área mais afetada</span><b id="rmrArea">Identidade e direção</b></div>
+    </div>
+  </div>
+
+  <!-- 2. VSL -->
+  <div class="card vsl" id="rmrVsl">
+    <p class="kicker">Assista antes de decidir</p>
+    <h2>Leandro explica o que <span class="gold">esse padrão significa</span> — e o que fazer agora.</h2>
+    <div class="vsl-frame" id="rmrVslFrame"></div>
+    <p class="lead" style="font-size:.9rem">Menos de 5 minutos. Se preferir ler, continue abaixo.</p>
+  </div>
+
+  <!-- 3. LEITURA -->
+  <div class="card">
+    <p class="kicker">O que o seu resultado revela</p>
+    <div class="read"><p>Seu resultado mostra desconexão. Você cumpre o que esperam de você, resolve, provê, aparece — mas está executando funções, não vivendo.</p><p>O que aparece nas suas respostas: você esteve com quem ama e só o seu corpo estava ali. Se afastou da fé, dos valores ou das convicções que antes organizavam sua vida, e não encontrou força para reagir.</p><p>Isso não é preguiça e não é fraqueza. É o custo de anos funcionando no automático sem ninguém perguntar como você está.</p></div>
+    <p class="impact">O homem apagado não perdeu valor. Ele perdeu conexão — consigo, com os seus e com o que dá sentido ao esforço.</p>
+  </div>
+
+  <!-- 4. CUSTO -->
+  <div class="card">
+    <h2>O que esse padrão <span class="gold">já está te custando</span>.</h2>
+    <p class="lead">Padrão não estaciona. Ele cobra em silêncio, todo dia, em três frentes:</p>
+    <div class="cost">
+      <div><b>1</b><span><b>Vínculo.</b> Sua família tem a sua presença física e sente a sua ausência emocional.</span></div>
+      <div><b>2</b><span><b>Sentido.</b> Você continua andando, mas já não sabe exatamente para onde — e isso rouba a força do esforço.</span></div>
+      <div><b>3</b><span><b>Vontade.</b> Quanto mais tempo apagado, mais difícil fica reacender. O apagamento se acomoda.</span></div>
+    </div>
+    <p class="lead">Você não precisa de mais disciplina para carregar o vazio. Precisa reencontrar o eixo que fazia o esforço valer.</p>
+  </div>
+
+  <!-- 5. OFERTA -->
+  <div class="card">
+    <p class="kicker">Seu próximo passo</p>
+    <h2>As <span class="gold">7 Verdades</span> que iniciam o Reset de um homem.</h2>
+    <p class="lead">Não é motivação. São 7 verdades que confrontam, com perguntas de confronto e exercícios práticos — e um protocolo de 7 dias para sair do papel.</p>
+
+    <div class="stack">
+      <div class="item"><p>eBook — 7 Verdades Que Todo Homem Precisa Ouvir<small>O material central: as 7 verdades e os exercícios.</small></p><em>Incluído</em></div>
+      <div class="item"><p>Checklist do Homem no Automático<small>Onde o automático já tomou conta: mente, emoções, fé, família e rotina.</small></p><em>Incluído</em></div>
+      <div class="item"><p>Protocolo Inicial de 7 Dias<small>Um passo por dia para transformar verdade em decisão.</small></p><em>Incluído</em></div>
+    </div>
+
+    <div class="price">
+      <p class="old">Três materiais. Pagamento único.</p>
+      <p class="big"><small>R$</small>37</p>
+      <p class="note">Acesso imediato por e-mail após a aprovação.</p>
+    </div>
+
+    <a class="btn" data-cta href="https://pay.hotmart.com/C106036012S?checkoutMode=10&sck=apagado_v2">Quero me reconectar — R$37</a>
+    <div class="trust">
+      <span>Acesso imediato</span><span>Pagamento seguro Hotmart</span><span>7 dias de garantia</span>
+    </div>
+  </div>
+
+  <!-- 6. GARANTIA -->
+  <div class="card guarantee">
+    <div class="seal"><b>7</b><span>dias</span></div>
+    <div>
+      <h3 class="gold">Garantia incondicional de 7 dias</h3>
+      <p class="lead" style="margin-top:8px">Leia, aplique o checklist, comece o protocolo. Se dentro de 7 dias entender que não é para você, solicite o reembolso pela Hotmart e receba 100% de volta. O risco é meu. A decisão é sua.</p>
+    </div>
+  </div>
+
+  <!-- 7. AUTOR -->
+  <div class="card author">
+    <p class="kicker">Quem está por trás</p>
+    <div class="photo"><img src="data:image/jpeg;base64,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" alt="Leandro Cunha"></div>
+    <h3 class="gold">Leandro Cunha</h3>
+    <p class="lead">Criador do Reset Masculino. Palestrante, mentor e escritor — dedica sua missão a treinar e impactar homens que querem sair do modo automático e reconstruir mente, emoções, disciplina, fé e identidade.</p>
+    <div class="stats">
+      <div><b>+100</b><span>Palestras</span></div>
+      <div><b>+10 mil</b><span>Homens impactados</span></div>
+      <div><b>+20 anos</b><span>De experiência</span></div>
+    </div>
+  </div>
+
+  <!-- 8. FAQ -->
+  <div class="card">
+    <h2>Perguntas <span class="gold">frequentes</span></h2>
+    <details><summary>Como recebo o acesso?</summary><p>Assim que a compra for aprovada, você recebe o acesso imediato por e-mail. Todo o conteúdo é 100% digital. Confira também spam e promoções.</p></details>
+    <details><summary>Por quanto tempo tenho acesso?</summary><p>O acesso é vitalício. Você baixa e acessa quando quiser, no seu tempo.</p></details>
+    <details><summary>É mais um material motivacional?</summary><p>Não. Aqui não tem frase de efeito nem promessa de vida perfeita. São 7 verdades que confrontam, com perguntas e exercícios práticos em cada uma — e um protocolo de 7 dias para aplicar.</p></details>
+    <details><summary>É seguro comprar?</summary><p>Sim. O pagamento é processado no ambiente seguro da Hotmart, com proteção dos dados da compra.</p></details>
+    <details><summary>E se não for para mim?</summary><p>Você tem 7 dias de garantia, conforme a condição exibida no checkout. Dentro desse prazo, o reembolso pode ser solicitado diretamente pela Hotmart.</p></details>
+    <details><summary>Isso substitui terapia ou acompanhamento?</summary><p>Não. É um material educacional e de reflexão — um primeiro passo. Para muitos homens, é o empurrão que faltava para buscar mais profundidade depois.</p></details>
+  </div>
+
+  <p class="foot">
+    O Diagnóstico Homem no Automático é uma ferramenta educativa de autorreflexão. Não constitui avaliação psicológica, diagnóstico clínico ou indicação de tratamento.<br>
+    <a href="https://leandrocunhaofc.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> ·
+    <a href="https://leandrocunhaofc.com.br/termos-de-uso/" target="_blank" rel="noopener">Termos de Uso</a><br>
+    © 2026 Reset Masculino — Leandro Cunha. Este produto é educacional e não garante resultados individuais.
+  </p>
+</div>
+
+<div class="sticky" id="rmrSticky">
+  <a data-cta href="https://pay.hotmart.com/C106036012S?checkoutMode=10&sck=apagado_v2">Começar meu Reset — R$37</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ====== CONFIGURACAO ====== */
+  var CONFIG = {
+    /* VSL: coloque a URL de incorporacao (YouTube/Vimeo/Panda) e mude para true.
+       Exemplo YouTube: "https://www.youtube.com/embed/CODIGO?rel=0" */
+    vslEnabled: false,
+    vslEmbedUrl: "",
+    metaEventsEnabled: false,     // ligar quando publicar em producao
+    pixelId: "1307273057695610"
+  };
+
+  var PROFILE = "apagado";
+
+  /* ====== 1. Personalizacao vinda do diagnostico ====== */
+  var data = null;
+  try { data = JSON.parse(sessionStorage.getItem("rm_diagnostico_v2_result") || "null"); } catch(e){}
+
+  if (data && data.profileKey === PROFILE) {
+    if (data.primeiroNome) {
+      var k = document.getElementById("rmrKicker");
+      if (k) k.textContent = data.primeiroNome + ", este é o seu resultado";
+    }
+    if (data.intensity) document.getElementById("rmrIntensity").textContent = data.intensity;
+    if (data.areaName) document.getElementById("rmrArea").textContent = data.areaName;
+  }
+
+  /* ====== 2. VSL ====== */
+  if (CONFIG.vslEnabled && CONFIG.vslEmbedUrl) {
+    var frame = document.getElementById("rmrVslFrame");
+    frame.innerHTML = '<iframe src="' + CONFIG.vslEmbedUrl +
+      '" title="Reset Masculino" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    document.getElementById("rmrVsl").classList.add("on");
+  }
+
+  /* ====== 3. UTMs seguem para o checkout ====== */
+  var utm = (function(){
+    try {
+      var q = new URLSearchParams(location.search), out = [];
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(key){
+        if (q.get(key)) out.push(key + "=" + encodeURIComponent(q.get(key)));
+      });
+      return out.join("&");
+    } catch(e){ return ""; }
+  })();
+
+  document.querySelectorAll("#rm-resultado-v2 [data-cta]").forEach(function(a){
+    if (utm) {
+      var href = a.getAttribute("href");
+      a.setAttribute("href", href + (href.indexOf("?") >= 0 ? "&" : "?") + utm);
+    }
+    a.addEventListener("click", function(){
+      if (CONFIG.metaEventsEnabled && window.fbq) {
+        window.fbq("track", "InitiateCheckout", { content_name: "Homem Apagado", value: 37, currency: "BRL" });
+      }
+    });
+  });
+
+  /* ====== 4. Barra fixa ====== */
+  var sticky = document.getElementById("rmrSticky");
+  var onScroll = function(){
+    var passed = window.scrollY > 520;
+    var nearEnd = (window.innerHeight + window.scrollY) > (document.body.offsetHeight - 200);
+    sticky.classList.toggle("show", passed && !nearEnd);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</section>
+</body>
+</html>

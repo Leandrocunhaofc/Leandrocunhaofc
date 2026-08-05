@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>{{TITLE}}</title>
+</head>
+<body style="margin:0;background:#070707">
+
+<section id="rm-resultado-v2" class="rmr" aria-label="{{PROFILE_NAME}}">
+<style>
+#rm-resultado-v2{
+  --bg:#070707;--panel:#12110f;--gold:#d5a33f;--gold-light:#f1cd78;--gold-dark:#8f651e;
+  --text:#f2eee5;--muted:#aaa295;--line:rgba(213,163,63,.24);--line-soft:rgba(255,255,255,.09);
+  width:100%;color:var(--text);
+  background:radial-gradient(90% 55% at 50% -10%,rgba(213,163,63,.15),transparent 62%),
+    linear-gradient(180deg,#0b0a08 0%,var(--bg) 52%,#030303 100%);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:84px;
+}
+#rm-resultado-v2 *,#rm-resultado-v2 *::before,#rm-resultado-v2 *::after{box-sizing:border-box}
+#rm-resultado-v2 img{max-width:100%;display:block}
+#rm-resultado-v2 a{text-decoration:none}
+#rm-resultado-v2 .rmr-shell{width:min(100%,680px);margin:0 auto;padding:26px 18px 40px}
+#rm-resultado-v2 h1,#rm-resultado-v2 h2,#rm-resultado-v2 h3{
+  margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:700;
+  letter-spacing:-.025em;text-wrap:balance;color:var(--text)}
+#rm-resultado-v2 h1{font-size:clamp(2.1rem,8vw,3.3rem);line-height:1}
+#rm-resultado-v2 h2{font-size:clamp(1.5rem,5.4vw,2.15rem);line-height:1.12}
+#rm-resultado-v2 h3{font-size:1.06rem;line-height:1.25}
+#rm-resultado-v2 p{margin:0}
+#rm-resultado-v2 .gold{color:var(--gold-light)}
+#rm-resultado-v2 .kicker{color:var(--gold);font-size:.72rem;font-weight:800;
+  letter-spacing:.17em;text-transform:uppercase;margin:0 0 10px}
+#rm-resultado-v2 .lead{color:var(--muted);font-size:clamp(1rem,3vw,1.09rem);margin-top:16px}
+#rm-resultado-v2 .card{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;
+  padding:clamp(24px,6vw,40px);margin-bottom:18px;
+  background:radial-gradient(70% 50% at 100% 0%,rgba(213,163,63,.10),transparent 72%),
+    linear-gradient(180deg,rgba(24,21,15,.96),rgba(12,12,12,.98));
+  box-shadow:0 30px 90px rgba(0,0,0,.46)}
+
+/* topo */
+#rm-resultado-v2 .brand{display:flex;flex-direction:column;align-items:center;gap:4px;
+  color:var(--gold-light);margin-bottom:22px;text-align:center}
+#rm-resultado-v2 .brand-mark{width:40px;height:40px;display:grid;place-items:center;
+  border:1px solid rgba(241,205,120,.62);border-radius:50%;font-family:Georgia,serif;
+  font-size:.86rem;font-weight:800;letter-spacing:-.04em;
+  background:radial-gradient(circle at 38% 30%,rgba(241,205,120,.20),rgba(213,163,63,.04) 55%,transparent 70%);
+  box-shadow:0 0 28px rgba(213,163,63,.12)}
+#rm-resultado-v2 .brand-word{font-size:.74rem;font-weight:850;letter-spacing:.21em;text-transform:uppercase;line-height:1}
+
+/* medidor */
+#rm-resultado-v2 .meter{display:flex;gap:7px;justify-content:center;margin:16px 0 4px}
+#rm-resultado-v2 .meter i{width:56px;height:6px;border-radius:4px;background:rgba(255,255,255,.11)}
+#rm-resultado-v2 .meter i.on{background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+  box-shadow:0 0 14px rgba(213,163,63,.45)}
+#rm-resultado-v2 .meter-label{text-align:center;color:var(--muted);font-size:.68rem;
+  font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+
+/* chips personalizados */
+#rm-resultado-v2 .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+#rm-resultado-v2 .chip{border:1px solid var(--line-soft);border-radius:13px;padding:13px 14px;
+  background:rgba(0,0,0,.26)}
+#rm-resultado-v2 .chip span{display:block;color:var(--muted);font-size:.66rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+#rm-resultado-v2 .chip b{color:var(--gold-light);font-size:.98rem;font-weight:800}
+@media(max-width:520px){#rm-resultado-v2 .chips{grid-template-columns:1fr}}
+
+/* leitura */
+#rm-resultado-v2 .read p{margin-top:16px;font-size:1.02rem}
+#rm-resultado-v2 .read p:first-child{margin-top:0}
+#rm-resultado-v2 .impact{border-left:3px solid var(--gold);background:rgba(213,163,63,.07);
+  padding:16px 18px;margin-top:22px;border-radius:0 12px 12px 0;
+  font-family:Georgia,serif;font-style:italic;font-size:1.08rem;color:var(--gold-light)}
+
+/* VSL */
+#rm-resultado-v2 .vsl{display:none}
+#rm-resultado-v2 .vsl.on{display:block}
+#rm-resultado-v2 .vsl-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;
+  overflow:hidden;border:1px solid var(--line);background:#000;margin-top:18px}
+#rm-resultado-v2 .vsl-frame iframe,#rm-resultado-v2 .vsl-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* custo */
+#rm-resultado-v2 .cost{display:grid;gap:12px;margin-top:22px}
+#rm-resultado-v2 .cost div{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;
+  color:#ddd6ca;font-size:.98rem}
+#rm-resultado-v2 .cost b{color:var(--gold-light);font-family:Georgia,serif;font-size:1.1rem;line-height:1.2}
+
+/* oferta */
+#rm-resultado-v2 .stack{display:grid;gap:10px;margin-top:22px}
+#rm-resultado-v2 .item{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;
+  border:1px solid var(--line-soft);border-radius:13px;padding:14px 16px;background:rgba(0,0,0,.24)}
+#rm-resultado-v2 .item p{font-size:.95rem;font-weight:700}
+#rm-resultado-v2 .item small{display:block;color:var(--muted);font-size:.8rem;font-weight:500;margin-top:2px}
+#rm-resultado-v2 .item em{color:var(--gold-light);font-style:normal;font-size:.82rem;
+  font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+#rm-resultado-v2 .price{text-align:center;margin-top:26px}
+#rm-resultado-v2 .price .old{color:var(--muted);font-size:.9rem}
+#rm-resultado-v2 .price .old s{opacity:.75}
+#rm-resultado-v2 .price .big{font-family:Georgia,serif;font-size:clamp(3rem,14vw,4rem);
+  line-height:1;color:var(--gold-light);margin-top:4px;text-shadow:0 2px 30px rgba(213,163,63,.35)}
+#rm-resultado-v2 .price .big small{font-size:.38em;vertical-align:top;margin-right:3px}
+#rm-resultado-v2 .price .note{color:var(--muted);font-size:.86rem;margin-top:6px}
+
+/* botao */
+#rm-resultado-v2 .btn{width:100%;min-height:60px;display:inline-flex;align-items:center;
+  justify-content:center;gap:9px;border:0;border-radius:13px;padding:17px 20px;color:#171005;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  box-shadow:0 14px 38px rgba(213,163,63,.24),inset 0 1px 0 rgba(255,255,255,.42);
+  font-weight:850;font-size:clamp(1rem,4vw,1.14rem);letter-spacing:.03em;text-transform:uppercase;
+  text-align:center;margin-top:22px;transition:transform .16s ease,filter .16s ease;cursor:pointer}
+#rm-resultado-v2 .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+#rm-resultado-v2 .btn:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px}
+#rm-resultado-v2 .trust{display:flex;gap:8px 20px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+#rm-resultado-v2 .trust span{color:var(--muted);font-size:.79rem}
+
+/* garantia */
+#rm-resultado-v2 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+#rm-resultado-v2 .seal{width:78px;height:78px;flex:none;display:grid;place-items:center;border-radius:50%;
+  border:2px solid var(--gold);color:var(--gold-light);font-family:Georgia,serif;text-align:center;
+  line-height:1;box-shadow:0 0 30px rgba(213,163,63,.18)}
+#rm-resultado-v2 .seal b{font-size:1.5rem;display:block}
+#rm-resultado-v2 .seal span{font-size:.54rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:520px){#rm-resultado-v2 .guarantee{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* autor */
+#rm-resultado-v2 .author{text-align:center}
+#rm-resultado-v2 .author .photo{width:104px;height:104px;border-radius:50%;margin:0 auto 16px;
+  border:2px solid var(--gold);padding:4px;background:radial-gradient(circle,#211d16,#0a0908);
+  box-shadow:0 0 34px rgba(213,163,63,.18)}
+#rm-resultado-v2 .author .photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center top}
+#rm-resultado-v2 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+#rm-resultado-v2 .stats b{display:block;font-family:Georgia,serif;font-size:1.32rem;color:var(--gold-light)}
+#rm-resultado-v2 .stats span{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* faq */
+#rm-resultado-v2 details{border:1px solid var(--line-soft);border-radius:13px;
+  background:rgba(0,0,0,.24);margin-top:10px;overflow:hidden}
+#rm-resultado-v2 details[open]{border-color:var(--line)}
+#rm-resultado-v2 summary{list-style:none;cursor:pointer;padding:15px 17px;color:var(--gold-light);
+  font-weight:800;font-size:.93rem;display:flex;gap:10px;align-items:center}
+#rm-resultado-v2 summary::-webkit-details-marker{display:none}
+#rm-resultado-v2 summary::after{content:"+";margin-left:auto;font-size:1.2rem;color:var(--gold)}
+#rm-resultado-v2 details[open] summary::after{content:"−"}
+#rm-resultado-v2 details p{padding:0 17px 16px;color:var(--muted);font-size:.92rem}
+
+/* rodape */
+#rm-resultado-v2 .foot{text-align:center;color:#817b72;font-size:.74rem;line-height:1.6;margin-top:26px}
+#rm-resultado-v2 .foot a{color:#aaa397}
+
+/* barra fixa */
+#rm-resultado-v2 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(7,7,7,.5),#070707 60%);border-top:1px solid var(--line);
+  backdrop-filter:blur(8px);transform:translateY(120%);transition:transform .32s cubic-bezier(.2,.7,.2,1)}
+#rm-resultado-v2 .sticky.show{transform:none}
+#rm-resultado-v2 .sticky a{display:flex;align-items:center;justify-content:center;width:100%;
+  max-width:680px;margin:0 auto;min-height:52px;border-radius:11px;color:#171005;font-weight:850;
+  text-transform:uppercase;letter-spacing:.03em;font-size:1rem;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));
+  box-shadow:0 -4px 22px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.42)}
+</style>
+
+<div class="rmr-shell">
+
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">RM</span>
+    <span class="brand-word">Reset Masculino</span>
+  </div>
+
+  <!-- 1. REVELACAO -->
+  <div class="card">
+    <p class="kicker" id="rmrKicker">Resultado do seu diagnóstico</p>
+    <p class="meter-label">Intensidade do padrão</p>
+    <div class="meter">{{METER}}</div>
+    <h1><span class="gold">{{PROFILE_NAME}}</span></h1>
+    <p class="lead">{{PROFILE_SUB}}</p>
+
+    <div class="chips">
+      <div class="chip"><span>Intensidade</span><b id="rmrIntensity">{{DEFAULT_INTENSITY}}</b></div>
+      <div class="chip"><span>Área mais afetada</span><b id="rmrArea">{{DEFAULT_AREA}}</b></div>
+    </div>
+  </div>
+
+  <!-- 2. VSL -->
+  <div class="card vsl" id="rmrVsl">
+    <p class="kicker">Assista antes de decidir</p>
+    <h2>Leandro explica o que <span class="gold">esse padrão significa</span> — e o que fazer agora.</h2>
+    <div class="vsl-frame" id="rmrVslFrame"></div>
+    <p class="lead" style="font-size:.9rem">Menos de 5 minutos. Se preferir ler, continue abaixo.</p>
+  </div>
+
+  <!-- 3. LEITURA -->
+  <div class="card">
+    <p class="kicker">O que o seu resultado revela</p>
+    <div class="read">{{DIAGNOSIS}}</div>
+    <p class="impact">{{IMPACT}}</p>
+  </div>
+
+  <!-- 4. CUSTO -->
+  <div class="card">
+    <h2>O que esse padrão <span class="gold">já está te custando</span>.</h2>
+    <p class="lead">Padrão não estaciona. Ele cobra em silêncio, todo dia, em três frentes:</p>
+    <div class="cost">
+      <div><b>1</b><span>{{COST_1}}</span></div>
+      <div><b>2</b><span>{{COST_2}}</span></div>
+      <div><b>3</b><span>{{COST_3}}</span></div>
+    </div>
+    <p class="lead">{{COST_CLOSE}}</p>
+  </div>
+
+  <!-- 5. OFERTA -->
+  <div class="card">
+    <p class="kicker">Seu próximo passo</p>
+    <h2>As <span class="gold">7 Verdades</span> que iniciam o Reset de um homem.</h2>
+    <p class="lead">Não é motivação. São 7 verdades que confrontam, com perguntas de confronto e exercícios práticos — e um protocolo de 7 dias para sair do papel.</p>
+
+    <div class="stack">
+      <div class="item"><p>eBook — 7 Verdades Que Todo Homem Precisa Ouvir<small>O material central: as 7 verdades e os exercícios.</small></p><em>Incluído</em></div>
+      <div class="item"><p>Checklist do Homem no Automático<small>Onde o automático já tomou conta: mente, emoções, fé, família e rotina.</small></p><em>Incluído</em></div>
+      <div class="item"><p>Protocolo Inicial de 7 Dias<small>Um passo por dia para transformar verdade em decisão.</small></p><em>Incluído</em></div>
+    </div>
+
+    <div class="price">
+      <p class="old">Três materiais. Pagamento único.</p>
+      <p class="big"><small>R$</small>37</p>
+      <p class="note">Acesso imediato por e-mail após a aprovação.</p>
+    </div>
+
+    <a class="btn" data-cta href="{{CHECKOUT_URL}}">{{CTA_TEXT}}</a>
+    <div class="trust">
+      <span>Acesso imediato</span><span>Pagamento seguro Hotmart</span><span>7 dias de garantia</span>
+    </div>
+  </div>
+
+  <!-- 6. GARANTIA -->
+  <div class="card guarantee">
+    <div class="seal"><b>7</b><span>dias</span></div>
+    <div>
+      <h3 class="gold">Garantia incondicional de 7 dias</h3>
+      <p class="lead" style="margin-top:8px">Leia, aplique o checklist, comece o protocolo. Se dentro de 7 dias entender que não é para você, solicite o reembolso pela Hotmart e receba 100% de volta. O risco é meu. A decisão é sua.</p>
+    </div>
+  </div>
+
+  <!-- 7. AUTOR -->
+  <div class="card author">
+    <p class="kicker">Quem está por trás</p>
+    <div class="photo"><img src="__PHOTO__" alt="Leandro Cunha"></div>
+    <h3 class="gold">Leandro Cunha</h3>
+    <p class="lead">Criador do Reset Masculino. Palestrante, mentor e escritor — dedica sua missão a treinar e impactar homens que querem sair do modo automático e reconstruir mente, emoções, disciplina, fé e identidade.</p>
+    <div class="stats">
+      <div><b>+100</b><span>Palestras</span></div>
+      <div><b>+10 mil</b><span>Homens impactados</span></div>
+      <div><b>+20 anos</b><span>De experiência</span></div>
+    </div>
+  </div>
+
+  <!-- 8. FAQ -->
+  <div class="card">
+    <h2>Perguntas <span class="gold">frequentes</span></h2>
+    <details><summary>Como recebo o acesso?</summary><p>Assim que a compra for aprovada, você recebe o acesso imediato por e-mail. Todo o conteúdo é 100% digital. Confira também spam e promoções.</p></details>
+    <details><summary>Por quanto tempo tenho acesso?</summary><p>O acesso é vitalício. Você baixa e acessa quando quiser, no seu tempo.</p></details>
+    <details><summary>É mais um material motivacional?</summary><p>Não. Aqui não tem frase de efeito nem promessa de vida perfeita. São 7 verdades que confrontam, com perguntas e exercícios práticos em cada uma — e um protocolo de 7 dias para aplicar.</p></details>
+    <details><summary>É seguro comprar?</summary><p>Sim. O pagamento é processado no ambiente seguro da Hotmart, com proteção dos dados da compra.</p></details>
+    <details><summary>E se não for para mim?</summary><p>Você tem 7 dias de garantia, conforme a condição exibida no checkout. Dentro desse prazo, o reembolso pode ser solicitado diretamente pela Hotmart.</p></details>
+    <details><summary>Isso substitui terapia ou acompanhamento?</summary><p>Não. É um material educacional e de reflexão — um primeiro passo. Para muitos homens, é o empurrão que faltava para buscar mais profundidade depois.</p></details>
+  </div>
+
+  <p class="foot">
+    O Diagnóstico Homem no Automático é uma ferramenta educativa de autorreflexão. Não constitui avaliação psicológica, diagnóstico clínico ou indicação de tratamento.<br>
+    <a href="https://leandrocunhaofc.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> ·
+    <a href="https://leandrocunhaofc.com.br/termos-de-uso/" target="_blank" rel="noopener">Termos de Uso</a><br>
+    © 2026 Reset Masculino — Leandro Cunha. Este produto é educacional e não garante resultados individuais.
+  </p>
+</div>
+
+<div class="sticky" id="rmrSticky">
+  <a data-cta href="{{CHECKOUT_URL}}">{{CTA_SHORT}}</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ====== CONFIGURACAO ====== */
+  var CONFIG = {
+    /* VSL: coloque a URL de incorporacao (YouTube/Vimeo/Panda) e mude para true.
+       Exemplo YouTube: "https://www.youtube.com/embed/CODIGO?rel=0" */
+    vslEnabled: false,
+    vslEmbedUrl: "",
+    metaEventsEnabled: false,     // ligar quando publicar em producao
+    pixelId: "1307273057695610"
+  };
+
+  var PROFILE = "{{PROFILE_KEY}}";
+
+  /* ====== 1. Personalizacao vinda do diagnostico ====== */
+  var data = null;
+  try { data = JSON.parse(sessionStorage.getItem("rm_diagnostico_v2_result") || "null"); } catch(e){}
+
+  if (data && data.profileKey === PROFILE) {
+    if (data.primeiroNome) {
+      var k = document.getElementById("rmrKicker");
+      if (k) k.textContent = data.primeiroNome + ", este é o seu resultado";
+    }
+    if (data.intensity) document.getElementById("rmrIntensity").textContent = data.intensity;
+    if (data.areaName) document.getElementById("rmrArea").textContent = data.areaName;
+  }
+
+  /* ====== 2. VSL ====== */
+  if (CONFIG.vslEnabled && CONFIG.vslEmbedUrl) {
+    var frame = document.getElementById("rmrVslFrame");
+    frame.innerHTML = '<iframe src="' + CONFIG.vslEmbedUrl +
+      '" title="Reset Masculino" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    document.getElementById("rmrVsl").classList.add("on");
+  }
+
+  /* ====== 3. UTMs seguem para o checkout ====== */
+  var utm = (function(){
+    try {
+      var q = new URLSearchParams(location.search), out = [];
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(key){
+        if (q.get(key)) out.push(key + "=" + encodeURIComponent(q.get(key)));
+      });
+      return out.join("&");
+    } catch(e){ return ""; }
+  })();
+
+  document.querySelectorAll("#rm-resultado-v2 [data-cta]").forEach(function(a){
+    if (utm) {
+      var href = a.getAttribute("href");
+      a.setAttribute("href", href + (href.indexOf("?") >= 0 ? "&" : "?") + utm);
+    }
+    a.addEventListener("click", function(){
+      if (CONFIG.metaEventsEnabled && window.fbq) {
+        window.fbq("track", "InitiateCheckout", { content_name: "{{PROFILE_NAME}}", value: 37, currency: "BRL" });
+      }
+    });
+  });
+
+  /* ====== 4. Barra fixa ====== */
+  var sticky = document.getElementById("rmrSticky");
+  var onScroll = function(){
+    var passed = window.scrollY > 520;
+    var nearEnd = (window.innerHeight + window.scrollY) > (document.body.offsetHeight - 200);
+    sticky.classList.toggle("show", passed && !nearEnd);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</section>
+</body>
+</html>
