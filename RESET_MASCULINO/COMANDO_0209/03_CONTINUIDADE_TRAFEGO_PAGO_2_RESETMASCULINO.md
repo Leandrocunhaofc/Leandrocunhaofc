@@ -566,3 +566,43 @@ Configuração vigente:
 - arte da Super Aula inserida na mensagem de inscrição.
 
 A automação antiga do Diagnóstico permaneceu preservada; a nova foi criada por duplicação e adaptação, sem reconstruir a estrutura do zero.
+
+
+# 18. ATUALIZAÇÃO OPERACIONAL — INSTAGRAM E BASE DIAGNÓSTICO
+
+**Data:** 19/08/2026  
+**Status:** AUTOMAÇÕES INSTAGRAM CONCLUÍDAS / BASE AINDA NÃO DISPARADA
+
+## Instagram
+
+Leandro confirmou como concluídas as automações de captação por:
+- resposta `COMANDO` em Story;
+- envio de `COMANDO` no Direct;
+- comentário `COMANDO` em Feed/Reels.
+
+A automação de Story foi criada como:
+`COMANDO 0209 — Instagram Respondeu COMANDO — Story`
+
+Regra preservada em todas as origens:
+**interação no Instagram → DM → landing oficial → inscrição → grupo e sequência do evento.**
+
+Não enviar diretamente para o grupo ou para a aula.
+
+## Base Diagnóstico — leitura verificada no Airtable
+
+Tabela:
+`COMANDO 0209 — Base Diagnóstico` (`tblGRdXeEZdqpYfSQ`)
+
+Leitura em 19/08/2026:
+- total atual: **613 contatos**;
+- `PENDENTE`: **613**;
+- `ENVIADO`: **0**;
+- `CLICOU`: **0**;
+- `INSCREVEU`: **0**;
+- `ERRO`: **0**.
+
+Conclusão: a base permanece preparada, mas **nenhum disparo de produção foi iniciado**.
+
+O objetivo da reativação continua sendo levar o contato à landing oficial para medir intenção. Somente após nova inscrição ele deve seguir para a tag de inscrito, grupo e lembretes da Super Aula.
+
+A consulta ao conector do Make retornou erro interno ao tentar listar cenários; nenhum cenário foi executado ou alterado durante essa verificação.
