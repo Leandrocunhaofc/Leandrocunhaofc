@@ -606,3 +606,57 @@ Conclusão: a base permanece preparada, mas **nenhum disparo de produção foi i
 O objetivo da reativação continua sendo levar o contato à landing oficial para medir intenção. Somente após nova inscrição ele deve seguir para a tag de inscrito, grupo e lembretes da Super Aula.
 
 A consulta ao conector do Make retornou erro interno ao tentar listar cenários; nenhum cenário foi executado ou alterado durante essa verificação.
+
+
+# 19. AUDITORIA OPERACIONAL DO MAKE
+
+**Data:** 19/08/2026  
+**Status:** CORREÇÕES CRÍTICAS CONCLUÍDAS / DISPARO DA BASE AINDA NÃO CRIADO NEM INICIADO
+
+Auditoria realizada diretamente no Make autenticado, sem executar disparos de produção.
+
+## Correções aplicadas
+
+1. Cenário ID `5983755`:
+   - era o antigo `COMANDO 03 — Reativação Base Diagnóstico`;
+   - arquitetura confirmada: `Airtable Search Records → Airtable Bulk Upsert Records (advanced)`;
+   - não possuía módulo de envio de mensagem;
+   - havia sido reativado indevidamente e executou novamente em 19/08/2026, consumindo 672 operações;
+   - foi desligado;
+   - foi renomeado para `ARQUIVO — COMANDO 03 migração concluída — NÃO ATIVAR`.
+
+2. Cenário `COMANDO 02 — Radar ManyChat` (ID `5972525`):
+   - confirmado como radar dos novos inscritos da tabela `COMANDO — Inscritos 02/09`, não como reativação da Base Diagnóstico;
+   - estava desligado automaticamente pelo Make por erro de validação;
+   - causa identificada na rota de criação de assinante: o campo obrigatório `Subscriber ID` recebia o bundle inteiro do módulo 3;
+   - mapeamento corrigido para `3. User ID`;
+   - cenário salvo e mantido desligado;
+   - não foi executado nem reativado; permanece pendente o teste controlado com um segundo número real.
+
+3. Duplicidade `RM05C — Compra Curso Reset — Marcar Curso`:
+   - ID `5600289`: versão simples, zero execuções, desligada e renomeada para `ARQUIVO — RM05C simples antigo — NÃO ATIVAR`;
+   - ID `5600338`: versão completa de produção preservada e ativa.
+
+4. Cenários de arquivo que estavam ligados apesar do nome `NÃO ATIVAR`:
+   - `ARQUIVO — RM05B antigo — NÃO ATIVAR` (ID `5599996`) foi desligado;
+   - `ARQUIVO — RM05C antigo — NÃO ATIVAR` (ID `5600203`) foi desligado.
+
+5. `COMANDO 01 — Captação Encontro 02/09`:
+   - arquitetura verificada: `Webhook → Airtable Bulk Upsert Records (advanced) → Webhook response`;
+   - cenário ativo, com execuções bem-sucedidas;
+   - nenhuma alteração aplicada.
+
+## Conclusão sobre a Base Diagnóstico
+
+Após a auditoria, não existe no Make um cenário completo de produção que envie o convite aos 613 contatos da tabela `COMANDO 0209 — Base Diagnóstico`.
+
+O antigo `COMANDO 03` era apenas a migração de dados e não deve ser reutilizado para envio.
+
+Portanto:
+- nenhum convite da Base Diagnóstico foi disparado;
+- os 613 contatos permanecem em `PENDENTE`;
+- é necessário criar um cenário novo e separado para o convite;
+- o cenário deve enviar a pessoa para a landing oficial, nunca diretamente para o grupo;
+- deve haver teste com um contato antes da produção;
+- a produção deve respeitar o limite observado de 250 mensagens/24h e atualizar `PENDENTE → ENVIADO/ERRO`;
+- não ativar o cenário até confirmar o fluxo/template correto do convite no ManyChat.
