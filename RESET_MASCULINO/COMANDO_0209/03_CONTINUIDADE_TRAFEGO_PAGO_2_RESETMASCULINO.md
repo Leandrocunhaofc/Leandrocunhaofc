@@ -544,3 +544,25 @@ Antes de sugerir mudanças, ler:
 Não voltar para fases concluídas.
 
 Toda nova decisão aprovada/travada deve ser registrada no GitHub no mesmo ciclo de trabalho.
+
+# 17. ATUALIZAÇÃO OPERACIONAL — AUTOMAÇÃO INSTAGRAM FEED/REELS
+
+**Data:** 19/08/2026  
+**Status:** CONCLUÍDA / ONLINE
+
+Automação criada e ativada no ManyChat:
+
+`COMANDO 0209 — Instagram Comentou COMANDO — Feed e Reels`
+
+Configuração vigente:
+- gatilho: comentário contendo a palavra `COMANDO` em publicação do Feed ou Reel;
+- DM inicial com confirmação por botão `QUERO PARTICIPAR`;
+- tag de intenção: `IG - Pediu COMANDO 0209`;
+- tag de origem: `IG - Origem Comentário`;
+- segunda DM com informações da Super Aula e botão `FAZER INSCRIÇÃO`;
+- destino: landing oficial `/quem-esta-no-comando/`;
+- rastreamento: `utm_source=instagram`, `utm_medium=organic`, `utm_campaign=comando_0209`, `utm_content=comentario_feed_reels`, `origem_detalhada=comentario_feed_reels`;
+- tag pós-envio: `IG - Link COMANDO 0209 Enviado`;
+- arte da Super Aula inserida na mensagem de inscrição.
+
+A automação antiga do Diagnóstico permaneceu preservada; a nova foi criada por duplicação e adaptação, sem reconstruir a estrutura do zero.
