@@ -1,0 +1,42 @@
+{
+  "account": {
+    "id": "1567614621462243",
+    "name": "Novo Leandro Cunha",
+    "page_id": "107395640813106",
+    "pixel_id": "1307273057695610"
+  },
+  "campaign": {
+    "id": "120249633572360049",
+    "name": "COMANDO 0209 | LEADS | SITE | FRIO",
+    "objective": "OUTCOME_LEADS",
+    "status": "PAUSED",
+    "special_ad_categories": []
+  },
+  "adset": {
+    "name": "BR | HOMENS | 28-55 | ADVANTAGE+",
+    "status": "PAUSED",
+    "daily_budget_minor_units": 10000,
+    "billing_event": "IMPRESSIONS",
+    "optimization_goal": "OFFSITE_CONVERSIONS",
+    "destination_type": "WEBSITE",
+    "promoted_object": {
+      "pixel_id": "1307273057695610",
+      "custom_event_type": "LEAD"
+    },
+    "targeting": {
+      "geo_locations": { "countries": ["BR"] },
+      "age_min": 28,
+      "age_max": 55,
+      "genders": [1],
+      "targeting_automation": { "advantage_audience": 1 }
+    },
+    "end_time": "2026-09-02T20:00:00-03:00"
+  },
+  "conversion": {
+    "landing_page": "https://leandrocunhaofc.com.br/quem-esta-no-comando/",
+    "confirmation_path": "/inscricao-confirmada/",
+    "standard_event": "Lead",
+    "fire_rule": "somente depois do envio válido do formulário"
+  },
+  "activation_guard": "DO_NOT_ENABLE_WITHOUT_EXPLICIT_APPROVAL"
+}
